@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<div id="judge">
+<!--  v-if判断  -->
+    <span v-if="flag">True</span>
+    <span v-else>False</span>
+    <span v-if="flagStr==='TRUE'">True</span>
+</div>
+<div id="loop">
+    <!--  for循环  -->
+    <!-- index为数组下标，从0开始 -->
+    <select>
+        <option v-for="(str,index) in strList">{{str}}-{{index}}</option>
+    </select>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#judge",
+        data:{
+            flag:true,
+            flagStr:'TRUE'
+        }
+    });
+    var vm = new Vue({
+        el:"#loop",
+        data:{
+            strList:['1','2','3','4','5']
+        }
+        //     {
+        //     strList:[str1='1',
+        //         str2='2',
+        //         str3='3',
+        //         str4='4',
+        //         str5='5'],
+        // }
+    });
+</script>
+
+
+</html>

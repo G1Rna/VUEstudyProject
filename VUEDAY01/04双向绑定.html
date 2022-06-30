@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<div id="app">
+    <input v-model="message">
+    <span>{{message}}</span>
+    <br>
+    <input type="radio" value="1" v-model="radio">1
+    <input type="radio" value="2" v-model="radio">2
+    <span>{{radio}}</span>
+    <br>
+    <input type="checkbox" value="1" v-model="checkbox">1
+    <input type="checkbox" value="2" v-model="checkbox">2
+    <input type="checkbox" value="3" v-model="checkbox">3
+    <input type="checkbox" value="4" v-model="checkbox">4
+    <span>{{checkbox}}</span>
+    <br>
+    <select v-model="select">
+        <option value="" disabled>请选择</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+    </select>
+    <span>{{select}}</span>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            radio:"",
+            message:"",
+            checkbox:"",
+            select:""
+        },
+        methods:{
+        }
+    });
+
+
+</script>
+
+
+</html>

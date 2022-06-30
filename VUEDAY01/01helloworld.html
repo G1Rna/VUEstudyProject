@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<div id="app">
+    {{message}}
+</div>
+<div id="app2">
+    {{message}}
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:"helloworld"
+        }
+    });
+    var vm = new Vue({
+        el:"#app2",
+        data:{
+            message:"helloworld"
+        }
+    });
+
+</script>
+
+
+</html>

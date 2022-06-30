@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<div id="app">
+    <!--  v-on:click 不能使用onclick  -->
+    <button v-on:click="soutHelloWorld">click</button>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:"helloworld"
+        },
+        //需要定义在methods中（注：不是method）
+        methods:{
+            soutHelloWorld:function () {
+                alert(this.message)
+            }
+        }
+    });
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<ul id="app">
+<!--  data绑定进入binder，所以在下面组件props接收中是接收binder(注：v-bind:XXX  XXX中使用驼峰命名法需要转译，否则会绑定失败)-->
+<zujian v-for="data in datas" v-bind:binder="data"></zujian>
+</ul>
+
+</body>
+<script>
+
+    Vue.component("zujian",{
+        props:['binder'],
+        template:'<li>{{binder}}</li>',
+    })
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            datas:['1','2','3']
+        }
+    });
+
+
+</script>
+
+
+</html>
