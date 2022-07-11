@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<div id="app">
+    <slotul>
+        <slotTitle slot="slotTitle" :title="title"></slotTitle>
+        <slotLi slot="slotLi" v-for="item in items" :item="item"></slotLi>
+
+    </slotul>
+</div>
+<script>
+    Vue.component('slotul',{
+        //首行的div不能去除  ???
+        template:'<div>\
+            <slot name="slotTitle"></slot>\
+            <ul>\
+            <slot name="slotLi"></slot>\
+            </ul>\
+            </div>'
+    });
+    Vue.component("slottitle",{
+        props:['title'],
+        template:'<div>{{title}}</div>'
+    });
+    Vue.component("slotli",{
+        props:["item"],
+        template:"<li>{{item}}</li>"
+    });
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            title:"vue",
+            items:['1','2','3']
+        }
+    });
+</script>
+</body>
+</html>

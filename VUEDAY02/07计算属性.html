@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<div id="app">
+    currentTime1： {{currentTime1()}}
+    <br>
+    currentTime2： {{currentTime2}}
+</div>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:"1"
+        },
+        methods:{
+            currentTime1:function () {
+                return Date.now();
+            }
+        },
+        //计算属性，计算后保留为一个值在内存中，不会改变
+        //当属性发生修改时会重新调用方法,如在浏览器使用msg=2，则会重新刷新
+        computed:{//计算属性，method，computed中的方法不能重名，重名的话优先使用method
+            currentTime2:function () {
+                this.message;
+                return Date.now();
+            }
+        }
+    });
+
+
+</script>
+</body>
+</html>

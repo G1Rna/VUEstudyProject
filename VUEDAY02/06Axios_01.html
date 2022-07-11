@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--  v-clock解决闪烁问题  -->
+    <style>
+        [v-clock]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<div id="app" v-clock>
+    {{info.message}}
+    <br>
+    {{info.ttl}}
+    <br>
+    <a v-bind:href="info.message">123</a>
+</div>
+</body>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        mounted(){
+            axios.get('../data.json').then(response=>(this.info = response.data))
+            axios.get('../data.json').then(response=>(console.log(response.data)))
+
+        },
+        data(){
+            return{
+                info:{
+                    ttl:null,
+                    message:null
+                }
+            }
+        }
+    });
+
+</script>
+
+
+</html>
